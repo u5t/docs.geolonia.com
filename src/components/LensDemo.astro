@@ -1,0 +1,15 @@
+---
+// レンズごとの「動くデモ」を遅延ロードの iframe で埋め込む。
+// data-src だけ持たせ src は空にしておき、タブが選択された時に
+// BaseLayout の initLensTabs が src を設定する（選択中のレンズだけ実際に動く）。
+// 見た目は components.css の .lens-demo 側。
+const { lens, example, title } = Astro.props;
+---
+<div class="lens-demo">
+  <iframe
+    class="lens-demo__frame"
+    data-src={`/demos/${example}/${lens}/`}
+    title={title ?? `${lens} のライブデモ`}
+    loading="lazy"
+  ></iframe>
+</div>

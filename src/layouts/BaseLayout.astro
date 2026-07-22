@@ -85,7 +85,16 @@ const nav = [
           groups.forEach(({ panels, buttons, names }) => {
             let idx = names.indexOf(lens); // その群に無ければ先頭を表示（全体の保存値は変えない）
             if (idx < 0) idx = 0;
-            panels.forEach((p, j) => (p.hidden = j !== idx));
+            panels.forEach((p, j) => {
+              const show = j === idx;
+              p.hidden = !show;
+              // 表示された時に、その中の動くデモ iframe を初回だけ読み込む（遅延ロード）
+              if (show) {
+                p.querySelectorAll('iframe[data-src]').forEach((f) => {
+                  if (!f.getAttribute('src')) f.setAttribute('src', f.getAttribute('data-src'));
+                });
+              }
+            });
             buttons.forEach((b, j) => {
               b.classList.toggle('active', j === idx);
               b.setAttribute('aria-selected', j === idx ? 'true' : 'false');
