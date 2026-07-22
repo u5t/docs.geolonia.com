@@ -6,6 +6,7 @@ kicker: チュートリアル ／ 段0
 badge: tutorial
 ---
 import Callout from '../../../components/Callout.astro'
+import LensDemo from '../../../components/LensDemo.astro'
 
 maps-suite チュートリアルへようこそ。maps-suite は、Geolonia Maps を **JavaScript から命令的に操作する**ためのライブラリです。この段では、Web ページに地図を1枚出すところまでをやります。
 
@@ -61,6 +62,10 @@ new geolonia.maps.Map(document.getElementById("map"), {
 ## 動いたか確認する
 
 `npm run dev` で開発サーバーを起動してブラウザで開くと、既定の場所——**東京駅**を中心にした地図が表示されます。マウスのドラッグで動き、ホイールで拡大縮小できれば成功です。
+
+このページ内で実際に動いている地図がこちらです（ライブデモは準備中）。
+
+<LensDemo src="/demos/tutorials/maps-suite/first-map/" title="maps-suite のライブデモ" />
 
 <Callout kind="warning" title="うまく出ないとき">
 - 真っ白で何も出ない → `#map` の**高さが 0** になっていないか確認。`<style>` の指定を確認してください。

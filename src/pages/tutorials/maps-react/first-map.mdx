@@ -6,6 +6,7 @@ kicker: チュートリアル ／ 段0
 badge: tutorial
 ---
 import Callout from '../../../components/Callout.astro'
+import LensDemo from '../../../components/LensDemo.astro'
 
 maps-react チュートリアルへようこそ。maps-react は、Geolonia Maps を **React コンポーネント**として使うためのライブラリです。この段では、React アプリに地図を1枚出すところまでをやります。
 
@@ -46,6 +47,10 @@ createRoot(document.getElementById("root")).render(
 ## 動いたか確認する
 
 `npm run dev` で開発サーバーを起動してブラウザで開くと、既定の場所——**東京駅**を中心にした地図が表示されます。マウスのドラッグで動き、ホイールで拡大縮小できれば成功です。
+
+このページ内で実際に動いている地図がこちらです。
+
+<LensDemo src="/demos/tutorials/maps-react/first-map/" title="maps-react のライブデモ" />
 
 <Callout kind="warning" title="うまく出ないとき">
 - 真っ白で何も出ない → `containerStyle` の**高さが 0** になっていないか確認。親要素が `height: 0` の場合も同じです。

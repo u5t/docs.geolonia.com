@@ -1,0 +1,9 @@
+---
+// tutorials/embed/first-map の動くデモ（iframe 埋め込み用）。
+// CDN が .geolonia を走査して描画。localhost / *.github.io でのみ描画される。
+import DemoLayout from '../../../../layouts/DemoLayout.astro';
+---
+<DemoLayout title="embed — 地図を出す">
+  <div class="geolonia"></div>
+  <script is:inline src="https://cdn.geolonia.com/embed/v5/embed?geolonia-api-key=YOUR-API-KEY"></script>
+</DemoLayout>

@@ -1,15 +1,16 @@
 ---
-// レンズごとの「動くデモ」を遅延ロードの iframe で埋め込む。
-// data-src だけ持たせ src は空にしておき、タブが選択された時に
-// BaseLayout の initLensTabs が src を設定する（選択中のレンズだけ実際に動く）。
+// 動くデモを遅延ロードの iframe で埋め込む。src は /demos/ 以下の
+// 本体ミラーのパス（例 /demos/tutorials/maps-react/first-map/）。
+// data-src だけ持たせ、BaseLayout の IntersectionObserver が
+// ビューポートに入った時に src を設定して読み込む（タブの中でも単独でも動く）。
 // 見た目は components.css の .lens-demo 側。
-const { lens, example, title } = Astro.props;
+const { src, title } = Astro.props;
 ---
 <div class="lens-demo">
   <iframe
     class="lens-demo__frame"
-    data-src={`/demos/${example}/${lens}/`}
-    title={title ?? `${lens} のライブデモ`}
+    data-src={src}
+    title={title ?? 'ライブデモ'}
     loading="lazy"
   ></iframe>
 </div>
